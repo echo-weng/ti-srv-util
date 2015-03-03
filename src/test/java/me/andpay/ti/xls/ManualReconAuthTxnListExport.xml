@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xls sheet="sheet1">
+	<parts>
+		<part>
+			<rows>
+				<row>
+					<cells>
+						<cell value="交易参考号"/>
+						<cell value="交易金额" cellSpan="2"/>
+						<cell value="交易时间"/>
+						<cell value="交易类型" />
+						<cell value="短卡号" />
+						<cell value="授权商户号" />
+						<cell value="授权商户名称" />
+						<cell value="授权终端号" />
+						<cell value="授权方终端跟踪号" />
+						<cell value="授权方交易参考号" />
+						<cell value="授权交易时间"/>
+					</cells>
+				</row>
+			</rows>
+		</part>
+		<part>
+			<rows>
+				<row>
+					<cells>
+						<cell value="${txnId}"/>
+						<cell value="${authAmt}" cellSpan="2"/>
+						<cell value="${txnTime}"/>
+						<cell value="${authTxnType}"/>
+						<cell value="${shortCardNo}" rowSpan="2"/>
+						<cell value="${authMerchantId}" />
+						<cell value="${authMerchantName}" />
+						<cell value="${authTerminalId}" />
+						<cell value="${authTermTraceNo}" />
+						<cell value="${authRef}" />
+						<cell value="${authTxnTime}" formate="yyyy-MM-dd"/>
+					</cells>
+				</row>
+			</rows>
+		</part>
+	</parts>
+</xls>

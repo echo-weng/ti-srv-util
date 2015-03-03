@@ -1,0 +1,74 @@
+xls模板说明：
+<?xml version="1.0" encoding="UTF-8"?>
+<xls sheet="sheet1">
+	<!-- 头部 包括标题 -->
+	<global>
+		<font fontName="" fontSize="14" boldweight="1" color="" italic="false" strikeout="false" underline="false"/>
+		<cellStyle alignment="center" vertical="middle" border="1,1,1,1" backgroundColor=""/>
+	</global>
+	<parts>
+		<!-- startIndex距离上一个 body是距离header -->
+		<part startIndex="0">
+			<global>
+				<font fontName="" fontSize="14" boldweight="1" color="" italic="false" strikeout="false" underline="false"/>
+				<cellStyle alignment="center" vertical="middle" border="1,1,1,1" backgroundColor=""/>
+			</global>
+			<rows>
+				<row height="1000">
+					<cells>
+						<cell value="${}" cellSpan="2" rowSpan="2" width="100" type="" formate="" convert="">
+							<font fontName="" fontSize="14" boldweight="1" color="" italic="false" strikeout="false" underline="false"/>
+							<cellStyle alignment="center" vertical="middle" border="1,1,1,1" backgroundColor=""/>
+						</cell>
+					</cells>
+				</row>
+			</rows>
+		</part>
+	</parts>
+</xls>
+
+xls: 有两个属性 cellWidth，sheet
+
+cellWidth属性：表示每列的宽度，中间用逗号分隔
+    例如：80,40,40,60,60,30,60,80，这个列数需要跟下面part里面的cell数量保持一致
+sheet属性：表示sheetName
+   
+xls：有两个element， global 和 parts
+
+global是全局样式：包含两个element：font和cellStyle
+font是字体的样式：font有以下属性：fontName，fontSize，boldweight，bold（是否粗体），color，italic（是否倾斜），strikeout（是否中间穿线），underline（是否有下划线）
+cellStyle是单元格的样式：
+     有以下属性：
+         alignment（center,left,right），
+         vertical（top，middle，bottom），
+         border：表示上右下左四个边框是否实线
+         backgroundColor：背景
+ 
+parts是part的集合
+part：
+    attribute:startIndex（距离上一个part的距离，默认为0）
+    element:rows（row的集合）
+    
+row:
+    attribute:
+    	height（表示该行的高度）= heightInPoints * 20
+    	heightInPoints（表示该行的高度，单位：点）
+    element:cells（cell的集合）
+   
+cell:
+   attribute:
+        value（值，可以用${}从传入的值对象中获取数据）
+        span 表示几列进行合并 可以不填写 (这里也可以通过index进行实现) 优先使用span
+        index（表示该cell在第几列，可以设置成例如(2,7)这种，表示从第二列到第七列进行合并）也可以换成span
+        width:表示该列的宽度
+        type:表示该值的类型，string,number,date。默认是string类型
+        formate:跟相应的值得类型对应起来
+        convert: 格式（type#object.function）
+                 type:bean(是spring的bean，这个object会从spring容器中获取),static(是静态方法),object(对象，通过new出来的)
+                 object:(如果type是bean，则object就是bean name，如果type是static，则object是这个静态类，如果type是object，则object是类的全名)
+                 function:是对象的方法名，返回值可以随意，但不能为void，传入参数必须一个，例如：Object convert(Object o);
+                 
+   element:font，cellStyle，跟上面的保持一致
+
+
+

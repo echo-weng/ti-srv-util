@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xls cellWidth="80,40,40,60,60,30,60,80" sheet="查询">
+	<!-- 头部 包括标题 -->
+	<global>
+		<font fontName="宋体" fontSize="12"/>
+		<cellStyle alignment="center" vertical="middle"/>
+	</global>
+	
+	<parts>
+		<!-- startIndex距离上一个 body是距离header -->
+		<part>
+			<rows>
+				<row height="600">
+					<cells>
+						<cell value="北京银行特约商户错账调整清单" index="0,7">
+							<font fontSize="16" boldweight="700"/>
+						</cell>
+					</cells>
+				</row>
+				<row height="300">
+					<cells>
+						<cell value="日期：" index="6">
+							<cellStyle alignment="left"/>
+						</cell>
+						<cell value="Date.now()" index="7">
+							<cellStyle alignment="left"/>
+						</cell>
+					</cells>
+				</row>
+			</rows>
+		</part>
+		<part>
+			<global>
+				<cellStyle border="1,1,1,1"/>
+			</global>
+			<rows>
+				<row height="400">
+					<cells>
+						<cell value="商户名称" index="0" />
+						<cell value="${authMerchantName}" index="1,2" />
+						<cell value="商户编号" index="3"/>
+						<cell value="${authMerchantId}" index="4,5"/>
+						<cell value="收单机构名称" index="6"/>
+						<cell value="北京银行上海分行" index="7"/>
+					</cells>
+				</row>
+				<row height="400">
+					<cells>
+						<cell value="商户联系电话" index="0" />
+						<cell value="——" index="1,2" />
+						<cell value="商户传真" index="3"/>
+						<cell value="——" index="4,5"/>
+						<cell value="发卡机构名称" index="6"/>
+						<cell value="——" index="7"/>
+					</cells>
+				</row>
+				<row height="400">
+					<cells>
+						<cell value="交 易 卡 号" index="0" />
+						<cell value="原始交易日期" index="1" />
+						<cell value="原始交易金额" index="2" />
+						<cell value="原始交易流水号" index="3" />
+						<cell value="原始检索参考号" index="4"/>
+						<cell value="退货日期" index="5"/>
+						<cell value="退货金额" index="6"/>
+						<cell value="投诉类型" index="7"/>
+					</cells>
+				</row>
+			</rows>
+		</part>
+		<part>
+			<global>
+				<cellStyle border="1,1,1,1"/>
+			</global>
+			<rows>
+				<row height="600">
+					<cells>
+						<cell value="${encCardNo}" index="0" type=""/>
+						<cell value="${origAuthTxnTime}" index="1" type="date" formate="yyyy-MM-dd HH:mm:ss"/>
+						<cell value="${origAuthAmt}" index="2" type="number"/>
+						<cell value="${origAuthRef}" index="3"/>
+						<cell value="${origAuthTermBatchNo}" index="4"/>
+						<cell value="${txnTime}" index="5" type="date" convert="static#me.andpay.ti.xls.srv.impl.DataConvertor.converDate"/>
+						<cell value="${authAmt}" index="6" type="number"/>
+						<cell value="□长款     □短款\n□全部退货 □部分退货" index="7">
+							<cellStyle alignment="left"/>
+						</cell>
+					</cells>
+				</row>
+			</rows>
+		</part>
+		<part>
+			<global>
+				<cellStyle alignment="left" vertical="middle"/>
+			</global>
+			<rows>
+				<row height="600">
+					<cells>
+						<cell value="商户经办员签字" index="0" />
+						<cell value="" index="1" />
+						<cell value="支行联系人" index="2"/>
+						<cell value="" index="3"/>
+						<cell value="" index="4"/>
+						<cell value="调账经办员签章" index="5,6"/>
+						<cell value="" index="7"/>
+					</cells>
+				</row>
+				<row height="600">
+					<cells>
+						<cell value="商户主管签字" index="0" />
+						<cell value="" index="1" />
+						<cell value="支行电话" index="2"/>
+						<cell value="" index="3"/>
+						<cell value="" index="4"/>
+						<cell value="调账复核员签章" index="5,6"/>
+						<cell value="" index="7"/>
+					</cells>
+				</row>
+				<row height="600">
+					<cells>
+						<cell value="商户财务章" index="0" />
+						<cell value="" index="1" />
+						<cell value="支行业务公章" index="2"/>
+						<cell value="" index="3"/>
+						<cell value="" index="4"/>
+						<cell value="调账部门业务公章" index="5,6"/>
+						<cell value="" index="7"/>
+					</cells>
+				</row>
+			</rows>
+		</part>
+	</parts>
+</xls>

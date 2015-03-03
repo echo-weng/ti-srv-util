@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xls cellWidth="80,40,40,60,60,30,60,80" sheet="">
+	<!-- 头部 包括标题 -->
+	<global>
+		<font fontName="" fontSize="14" boldweight="1" color="" italic="false" strikeout="false" underline="false"/>
+		<cellStyle alignment="center" vertical="middle" border="1,1,1,1" backgroundColor=""/>
+	</global>
+	<parts>
+		<!-- startIndex距离上一个 body是距离header -->
+		<part startIndex="0">
+			<global>
+				<font fontName="" fontSize="14" boldweight="1" color="" italic="false" strikeout="false" underline="false"/>
+				<cellStyle alignment="center" vertical="middle" border="1,1,1,1" backgroundColor=""/>
+			</global>
+			<rows>
+				<row height="1000">
+					<cells>
+						<cell value="${}" index="1,2" width="100" type="" formate="" convert="static#me.andpay.ti.xls.srv.impl.DataConvertor.converDate">
+							<font fontName="" fontSize="14" boldweight="1" color="" italic="false" strikeout="false" underline="false"/>
+							<cellStyle alignment="center" vertical="middle" border="1,1,1,1" backgroundColor=""/>
+						</cell>
+					</cells>
+				</row>
+			</rows>
+		</part>
+	</parts>
+</xls>

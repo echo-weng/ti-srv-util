@@ -1,0 +1,19 @@
+# test props
+
+# pattern - category definition : ## [scope@]category
+# pattern - name value : category.name = value
+
+## ac-test-1@app_exc_code
+app_exc_code.SYS.001=sys err 1
+ app_exc_code.SYS.002 = sys err 2
+
+## ac-test-2@app_exc_code
+app_exc_code.SYS.001=system error 1
+app_exc_code.SYS.002=system error 2
+
+## resp_msg
+resp_msg.TXN.000=\u4ea4\u6613\u6210\u529f
+resp_msg.SYS.001=system \
+						error
+
+resp_msg.SYS.002=system error \\
